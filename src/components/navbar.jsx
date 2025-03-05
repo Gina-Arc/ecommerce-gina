@@ -1,6 +1,7 @@
-// src/components/NavBar.js
+
 import React from 'react';
-import CartWidget from './CartWidget';
+import CarritoCompras from './carrito';
+
 const NavBar = () => {
     return (
         <nav>
@@ -10,7 +11,7 @@ const NavBar = () => {
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <CartWidget />
+            <CarritoCompras/>
         </nav>
     );
 };

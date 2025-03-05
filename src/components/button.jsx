@@ -1,5 +1,8 @@
-export default function Button() {
+
+import React from 'react';
+const Button = () => {
     return (
-        <button>click me!</button>
+        <button>Click Me!</button>
     );
-}
+};
+export default Button;
