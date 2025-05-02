@@ -1,24 +1,27 @@
-jsx
+// App.jsx
 import React from 'react';
 import './App.css';
-import NavBar from './components/navbar';
-import ItemListContainer from './components/list';
-import CarritoCompras from './components/carrito';
-import ItemDetailContainer from './components/ItemDetailContainer'; 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
+import CarritoCompras from './components/CarritoCompras';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import NotFound from './components/NotFound';
+
 function App() {
-    return (
-        <Router>
-            <NavBar />
-            <Switch>
-                <Route exact path="/" component={ItemListContainer} />
-                <Route path="/category/:categoryId" component={ItemListContainer} />
-                <Route path="/product/:productId" component={ItemDetailContainer} />
-                <Route path="/carrito" component={CarritoCompras} />
-                <Route path="*" component={NotFound} />
-            </Switch>
-        </Router>
-    );
+  return (
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:categoryId" element={<ItemListContainer />} />
+        <Route path="/product/:productId" element={<ItemDetailContainer />} />
+        <Route path="/carrito" element={<CarritoCompras />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
 }
+
 export default App;
