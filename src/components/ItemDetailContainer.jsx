@@ -1,30 +1,32 @@
-import React, { useEffect, useState } from 'react';
+// ItemDetailContainer.jsx
+import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+
+const productos = [
+  { id: 1, name: 'Producto 1', category: 'cat1' },
+  { id: 2, name: 'Producto 2', category: 'cat1' },
+  { id: 3, name: 'Producto 3', category: 'cat2' },
+];
 
 const ItemDetailContainer = () => {
-  const { id } = useParams();
-  const [item, setItem] = useState(null);
+  const { productId } = useParams();
+  const { addItem } = useCart();
+  const producto = productos.find(p => p.id === Number(productId));
 
-  useEffect(() => {
-    const fetchItem = async () => {
-      const fetchedItem = await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ id, name: `Producto ${id}`, description: `Descripción del producto ${id}` });
-        }, 1000);
-      });
-      setItem(fetchedItem);
-    };
-    fetchItem();
-  }, [id]);
-
-  if (!item) return <div>Cargando producto...</div>;
+  if (!producto) {
+    return <div>Producto no encontrado</div>;
+  }
 
   return (
-    <div>
-      <h2>{item.name}</h2>
-      <p>{item.description}</p>
+    <div style={{ padding: "20px" }}>
+      <h1>Detalle del {producto.name}</h1>
+      <p>Acá iría la información detallada del producto.</p>
+      <button onClick={() => addItem(producto)}>Agregar al carrito</button>
     </div>
   );
 };
 
 export default ItemDetailContainer;
+
+

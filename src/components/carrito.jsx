@@ -21,7 +21,18 @@ const CarritoCompras = () => {
         </ul>
       )}
       {cartItems.length > 0 && (
-        <button onClick={clearCart}>Vaciar Carrito</button>
+        <>
+          <button onClick={clearCart}>Vaciar Carrito</button>
+          <button
+            style={{ marginLeft: 10, background: "#25D366" }}
+            onClick={() => {
+              alert("¡Compra realizada con éxito!");
+              clearCart();
+            }}
+          >
+            Finalizar compra
+          </button>
+        </>
       )}
     </div>
   );

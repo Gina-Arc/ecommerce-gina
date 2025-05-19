@@ -1,13 +1,12 @@
-
-// src/components/list.jsx
+// list.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 const ItemListContainer = () => {
   const { categoryId } = useParams();
-  const { addItem } = useCart();
   const [items, setItems] = useState([]);
+  const { addItem } = useCart();
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -31,10 +30,9 @@ const ItemListContainer = () => {
   return (
     <div className="products">
       {items.map(item => (
-        <div key={item.id} className="product">
-          <h3>{item.name}</h3>
-          <Link to={`/product/${item.id}`}>Ver detalle</Link>
-          <br />
+        <div className="product" key={item.id}>
+          <h2>{item.name}</h2>
+          <Link to={`/product/${item.id}`}>Ver Detalle</Link>
           <button onClick={() => addItem(item)}>Agregar al carrito</button>
         </div>
       ))}
