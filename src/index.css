@@ -17,13 +17,15 @@ body {
   background: #f9f9f9;
 }
 
+
 .header {
-  background: #333;
+  background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
   color: white;
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .header nav a {
@@ -31,9 +33,11 @@ body {
   text-decoration: none;
   margin: 0 10px;
   font-weight: bold;
+  transition: color 0.2s;
 }
 
 .header nav a:hover {
+  color: #ffe082;
   text-decoration: underline;
 }
 
@@ -106,4 +110,42 @@ body {
 
 .cart button:hover {
   background: #25D366;
+}
+
+/* Estilos para login y registro */
+.auth-container {
+  max-width: 350px;
+  margin: 40px auto;
+  background: white;
+  padding: 32px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 10px 0;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-form button:hover {
+  background: #128C7E;
 }

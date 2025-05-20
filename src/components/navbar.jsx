@@ -4,14 +4,17 @@ import CartWidget from './CartWidget';
 
 const NavBar = () => (
   <header className="header">
-    <h1>Tienda Celulares</h1>
-    <nav>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <h1 style={{ margin: 0, fontSize: "2rem" }}>📱 Tienda Celulares</h1>
+    </div>
+    <nav style={{ display: "flex", alignItems: "center", gap: "15px" }}>
       <Link to="/">Inicio</Link>
-      <Link to="/category/samsung"></Link>
-      <Link to="/category/apple"></Link>
       <Link to="/cart">
         <CartWidget />
       </Link>
+      <span style={{ margin: "0 10px", color: "#ccc" }}>|</span>
+      <Link to="/login" style={{ fontWeight: "bold" }}>Iniciar sesión</Link>
+      <Link to="/register" style={{ fontWeight: "bold" }}>Crear cuenta</Link>
     </nav>
   </header>
 );
